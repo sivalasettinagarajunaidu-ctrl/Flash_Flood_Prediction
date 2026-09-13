@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flash Flood Prediction System</title>
+    <meta name="description" content="Multi-source flash flood prediction, early warning, risk mapping, and disaster response system for hilly regions using machine learning and terrain telemetry." />
+    <meta property="og:title" content="Flash Flood Prediction System" />
+    <meta property="og:description" content="Multi-source flash flood prediction, early warning, risk mapping, and disaster response system for hilly regions using machine learning and terrain telemetry." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script>
+      (function () {
+        function isBenign(val) {
+          if (!val) return false;
+          var str = typeof val === 'string' ? val : (val.message || val.reason || String(val));
+          return str.indexOf('WebSocket') !== -1 || str.indexOf('websocket') !== -1 || str.indexOf('closed without opened') !== -1;
+        }
+        window.addEventListener('unhandledrejection', function (e) {
+          if (isBenign(e.reason) || isBenign(e)) {
+            e.preventDefault();
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          }
+        }, true);
+        window.addEventListener('error', function (e) {
+          if (isBenign(e.message) || isBenign(e.error) || isBenign(e)) {
+            e.preventDefault();
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,6 @@
+{
+  "name": "Flash Flood Prediction System",
+  "description": "Multi-source flash flood prediction, early warning, risk mapping, and disaster response system for hilly regions using machine learning and terrain telemetry.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
